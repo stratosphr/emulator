@@ -1,8 +1,9 @@
-import React, {Component} from 'react'
+import React, {Component, RefObject} from 'react'
 import './css/Emulator.css'
 import ByteMemory from './core/memory/ByteMemory'
 import MemoryCounter from './core/counters/MemoryCounter'
 import HalfWordMemory from './core/memory/HalfWordMemory'
+import Screen from './core/graphics/Screen'
 
 interface IEmulatorProps {
 }
@@ -12,6 +13,7 @@ interface IEmulatorState {
 
 export default class Emulator extends Component<IEmulatorProps, IEmulatorState> {
 
+	private readonly screenRef: RefObject<Screen>
 	private readonly ram: ByteMemory
 	private readonly pc: MemoryCounter
 	private readonly v: ByteMemory
@@ -23,6 +25,7 @@ export default class Emulator extends Component<IEmulatorProps, IEmulatorState> 
 
 	constructor(props: Readonly<IEmulatorProps>) {
 		super(props)
+		this.screenRef = React.createRef<Screen>()
 		this.ram = new ByteMemory(4096)
 		this.pc = new MemoryCounter(this.ram, 512)
 		this.v = new ByteMemory(16)
@@ -33,10 +36,23 @@ export default class Emulator extends Component<IEmulatorProps, IEmulatorState> 
 		this.soundCounter = new ByteMemory()
 	}
 
+	public componentDidMount(): void {
+		this.screenRef.current!.clear()
+	}
+
 	public render(): React.ReactElement<any, string | React.JSXElementConstructor<any>> | string | number | {} | React.ReactNodeArray | React.ReactPortal | boolean | null | undefined {
 		return (
-			<div />
+			<Screen position={{x: 100, y: 100}} definition={{width: 64, height: 32}} pixelsDimensions={{width: 8, height: 8}} ref={this.screenRef} />
 		)
+	}
+
+	private count() {
+		if (this.gameCounter[0] > 0) {
+			--this.gameCounter[0]
+		}
+		if (this.soundCounter[0] > 0) {
+			--this.soundCounter[0]
+		}
 	}
 
 }
