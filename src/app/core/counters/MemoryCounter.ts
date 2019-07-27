@@ -3,13 +3,13 @@ import {IMemory} from '../memory/IMemory'
 export default class MemoryCounter {
 
 	private readonly _memoryLength: number
+	private _address: number
 
-	constructor(memory: IMemory) {
+	constructor(memory: IMemory, initialAddress: number = 0) {
 		this._memoryLength = memory.length
 		this._address = 0
+		this.goTo(initialAddress)
 	}
-
-	private _address: number
 
 	public get address(): number {
 		return this._address
