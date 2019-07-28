@@ -37,22 +37,15 @@ export default class Emulator extends Component<IEmulatorProps, IEmulatorState> 
 	}
 
 	public componentDidMount(): void {
-		this.screenRef.current!.clear()
+		this.screenRef.current!.randomizePixelsColors()
+		this.screenRef.current!.setPixelColor({x: 3, y: 9}, 'red')
+		this.screenRef.current!.setPixelColor({x: 0, y: 0}, 'cyan')
 	}
 
 	public render(): React.ReactElement<any, string | React.JSXElementConstructor<any>> | string | number | {} | React.ReactNodeArray | React.ReactPortal | boolean | null | undefined {
 		return (
-			<Screen position={{x: 100, y: 100}} definition={{width: 64, height: 32}} pixelsDimensions={{width: 8, height: 8}} ref={this.screenRef} />
+			<Screen position={{x: 100, y: 100}} definition={{width: 640, height: 320}} pixelsDimensions={{width: 20, height: 20}} ref={this.screenRef} />
 		)
-	}
-
-	private count() {
-		if (this.gameCounter[0] > 0) {
-			--this.gameCounter[0]
-		}
-		if (this.soundCounter[0] > 0) {
-			--this.soundCounter[0]
-		}
 	}
 
 }
