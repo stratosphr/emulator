@@ -2,12 +2,14 @@ import React, {Component, RefObject} from 'react'
 import {IDimensions} from '../utils/IDimensions'
 import {IPosition} from '../utils/IPosition'
 import Pixel from './Pixel'
+import {IDisplayable} from '../utils/IDisplayable'
 
-interface IScreenProps {
+interface IScreenProps extends IDisplayable {
 
 	position?: IPosition
 	definition: IDimensions
 	pixelsDimensions: IDimensions
+	refreshFrequency: number
 
 }
 
@@ -77,7 +79,7 @@ export default class Screen extends Component<IScreenProps, IScreenState> {
 
 	public render(): React.ReactElement<any, string | React.JSXElementConstructor<any>> | string | number | {} | React.ReactNodeArray | React.ReactPortal | boolean | null | undefined {
 		return (
-			<canvas width={this.dimensions.width} height={this.dimensions.height} ref={this.canvasRef} style={{position: 'relative', left: this.position.x, top: this.position.y}}>
+			<canvas width={this.dimensions.width} height={this.dimensions.height} ref={this.canvasRef} style={{position: 'absolute', left: this.position.x, top: this.position.y, visibility: this.props.display ? 'visible' : 'hidden'}}>
 				Unable to emulate screen because the canvas element isn't supported by your browser.
 			</canvas>
 		)
