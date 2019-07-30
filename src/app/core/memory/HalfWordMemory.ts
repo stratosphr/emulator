@@ -1,9 +1,10 @@
-import {IMemory} from './IMemory'
+import AMemory from './AMemory'
+import {EDataLength} from './EDataLength'
 
-export default class HalfWordMemory extends Uint16Array implements IMemory {
+export default class HalfWordMemory extends AMemory {
 
-	public constructor(length: number = 1) {
-		super(length)
+	constructor(length: number = 1) {
+		super(length, EDataLength.HALF_WORD)
 	}
 
 }

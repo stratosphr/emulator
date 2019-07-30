@@ -1,11 +1,11 @@
-import {IMemory} from '../memory/IMemory'
+import AMemory from '../memory/AMemory'
 
 export default class MemoryCounter {
 
 	private readonly _memoryLength: number
 	private _address: number
 
-	constructor(memory: IMemory, initialAddress: number = 0) {
+	constructor(memory: AMemory, initialAddress: number = 0) {
 		this._memoryLength = memory.length
 		this._address = 0
 		this.goTo(initialAddress)

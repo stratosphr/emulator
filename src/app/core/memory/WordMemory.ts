@@ -1,9 +1,10 @@
-import {IMemory} from './IMemory'
+import AMemory from './AMemory'
+import {EDataLength} from './EDataLength'
 
-export default class WordMemory extends Uint32Array implements IMemory {
+export default class WordMemory extends AMemory {
 
-	public constructor(length: number = 1) {
-		super(length)
+	constructor(length: number = 1) {
+		super(length, EDataLength.WORD)
 	}
 
 }

@@ -1,9 +1,10 @@
-import {IMemory} from './IMemory'
+import {EDataLength} from './EDataLength'
+import AMemory from './AMemory'
 
-export default class ByteMemory extends Uint8Array implements IMemory {
+export default class ByteMemory extends AMemory {
 
-	public constructor(length: number = 1) {
-		super(length)
+	constructor(length: number = 1) {
+		super(length, EDataLength.BYTE)
 	}
 
 }
