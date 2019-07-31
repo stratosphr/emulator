@@ -4,7 +4,7 @@ table {
     -moz-box-shadow: 4px 4px 5px 0 rgba(0, 0, 0, 0.8);
     box-shadow: 4px 4px 5px 0 rgba(0, 0, 0, 0.8);
     float: left;
-    margin: 6px;
+    margin: 3px;
 }
 
 caption {

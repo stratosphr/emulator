@@ -3,6 +3,7 @@
     <words>
       <w>hexa</w>
       <w>jumpc</w>
+      <w>opcode</w>
     </words>
   </dictionary>
 </component>
