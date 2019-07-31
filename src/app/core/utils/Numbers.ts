@@ -2,7 +2,7 @@ import {EDataLength} from '../memory/EDataLength'
 
 export default class Numbers {
 
-	public static toStringWithBase(value: number, base: number, length: EDataLength = EDataLength.BYTE): string {
+	public static toStringWithBase(value: number, base: number, length: number): string {
 		return Numbers.pad(value.toString(base), length).toUpperCase()
 	}
 

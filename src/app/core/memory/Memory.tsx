@@ -2,11 +2,14 @@ import React, {Component} from 'react'
 import AMemory from './AMemory'
 import '../../css/Memory.css'
 import Numbers from '../utils/Numbers'
+import MemoryPointer from '../counters/MemoryPointer'
+import Colors from '../utils/Colors'
 
 interface IMemoryProps {
 
 	name: string
 	memory: AMemory
+	pointers: MemoryPointer[]
 
 }
 
@@ -33,12 +36,13 @@ export default class Memory extends Component<IMemoryProps, IMemoryState> {
 					</thead>
 					<tbody>
 					{this.props.memory.map((data, address) =>
-						<tr key={this.props.name + '_tr_' + address}>
+						<tr style={{backgroundColor: this.props.pointers.some(pointer => pointer.address === address) ? Colors.random() : 'transparent'}} key={this.props.name + '_tr_' + address}>
 							<td>{address}</td>
 							<td>{Numbers.toStringWithBase(this.props.memory.read(address), 2, this.props.memory.dataLength)}</td>
 							<td>{Numbers.toStringWithBase(this.props.memory.read(address), 16, this.props.memory.dataLength / 4)}</td>
 							<td>{this.props.memory.read(address)}</td>
-						</tr>)}
+						</tr>
+					)}
 					</tbody>
 				</table>
 			</div>

@@ -21,7 +21,7 @@ export default class Emulator extends Component<IEmulatorProps, IEmulatorState> 
 	private readonly v: ByteMemory
 	private readonly i: HalfWordMemory
 	private readonly stack: HalfWordMemory
-	private readonly jumpCounter: MemoryPointer
+	private readonly stackPointer: MemoryPointer
 	private readonly gameCounter: ByteMemory
 	private readonly soundCounter: ByteMemory
 
@@ -33,7 +33,7 @@ export default class Emulator extends Component<IEmulatorProps, IEmulatorState> 
 		this.v = new ByteMemory(16)
 		this.i = new HalfWordMemory()
 		this.stack = new HalfWordMemory(16)
-		this.jumpCounter = new MemoryPointer(this.stack)
+		this.stackPointer = new MemoryPointer(this.stack)
 		this.gameCounter = new ByteMemory()
 		this.soundCounter = new ByteMemory()
 		this.ram.write(4096, 42)
@@ -45,9 +45,9 @@ export default class Emulator extends Component<IEmulatorProps, IEmulatorState> 
 		return (
 			<System>
 				<Screen position={{x: 400, y: 100}} definition={{width: 64, height: 32}} pixelsDimensions={{width: 5, height: 5}} refreshFrequency={250} display={false} ref={this.screenRef} />
-				<Memory name={'RAM'} memory={this.ram} />
-				<Memory name={'V'} memory={this.v} />
-				<Memory name={'Stack'} memory={this.stack} />
+				<Memory name={'RAM'} memory={this.ram} pointers={[this.pc]} />
+				<Memory name={'V'} memory={this.v} pointers={[]} />
+				<Memory name={'Stack'} memory={this.stack} pointers={[this.stackPointer, new MemoryPointer(this.ram, 3)]} />
 			</System>
 		)
 	}
