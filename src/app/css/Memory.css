@@ -1,4 +1,21 @@
-table, th, td {
-    text-align: center;
+table {
+    background-color: lightgrey;
+    -webkit-box-shadow: 4px 4px 5px 0 rgba(0, 0, 0, 0.8);
+    -moz-box-shadow: 4px 4px 5px 0 rgba(0, 0, 0, 0.8);
+    box-shadow: 4px 4px 5px 0 rgba(0, 0, 0, 0.8);
+    float: left;
+    margin: 6px;
+}
+
+caption {
+    background-color: lightgrey;
     border: solid thin black;
+    font-size: 1.25em;
+    font-weight: bold;
+}
+
+table, th, td {
+    padding: 0 3px;
+    border: solid thin black;
+    text-align: center;
 }

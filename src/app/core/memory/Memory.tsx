@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import AMemory from './AMemory'
-import Binary from '../utils/Binary'
 import '../../css/Memory.css'
+import Numbers from '../utils/Numbers'
 
 interface IMemoryProps {
 
@@ -18,21 +18,27 @@ export default class Memory extends Component<IMemoryProps, IMemoryState> {
 	public render(): React.ReactElement<any, string | React.JSXElementConstructor<any>> | string | number | {} | React.ReactNodeArray | React.ReactPortal | boolean | null | undefined {
 		return (
 			<div>
-				<table>
+				<table className={'memory'}>
 					<caption>{this.props.name}</caption>
 					<thead>
 					<tr>
 						<th rowSpan={2}>Address</th>
-						<th colSpan={this.props.memory.dataLength + 1}>Data</th>
+						<th colSpan={3}>Data</th>
 					</tr>
 					<tr>
-						<th colSpan={this.props.memory.dataLength}>Binary</th>
+						<th>Binary</th>
+						<th>Hexadecimal</th>
 						<th>Decimal</th>
 					</tr>
 					</thead>
 					<tbody>
-					{this.props.memory.map((data, address) => <tr key={this.props.name + '_tr_' + address}>{[<td key={this.props.name + '_address_' + address}>{address}</td>, ...Binary.toString(data, this.props.memory.dataLength).split('').map((bit, bitIndex) =>
-						<td key={this.props.name + '_data_' + address + '_bit_' + bitIndex}>{bit}</td>), <td key={this.props.name + '_data_' + address}>{data}</td>]}</tr>)}
+					{this.props.memory.map((data, address) =>
+						<tr key={this.props.name + '_tr_' + address}>
+							<td>{address}</td>
+							<td>{Numbers.toStringWithBase(this.props.memory.read(address), 2, this.props.memory.dataLength)}</td>
+							<td>{Numbers.toStringWithBase(this.props.memory.read(address), 16, this.props.memory.dataLength / 4)}</td>
+							<td>{this.props.memory.read(address)}</td>
+						</tr>)}
 					</tbody>
 				</table>
 			</div>

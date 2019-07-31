@@ -2,19 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="60276eb7-3cad-4d3d-8613-efe4627a88b6" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/app/core/memory/AMemory.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/core/memory/EDataLength.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/core/memory/Memory.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/core/utils/Binary.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/css/Memory.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/gvoiron.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/gvoiron.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/Emulator.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Emulator.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/core/counters/MemoryCounter.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/core/counters/MemoryCounter.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/core/memory/ByteMemory.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/core/memory/ByteMemory.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/core/memory/HalfWordMemory.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/core/memory/HalfWordMemory.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/core/memory/IMemory.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/core/memory/WordMemory.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/core/memory/WordMemory.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/core/memory/EDataLength.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/core/memory/EDataLength.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/core/memory/Memory.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/core/memory/Memory.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/core/utils/Binary.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/core/utils/Numbers.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/css/Memory.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/css/Memory.css" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -30,8 +24,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/app/Emulator.tsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="347">
-              <caret line="39" column="30" selection-start-line="39" selection-start-column="30" selection-end-line="39" selection-end-column="30" />
+            <state relative-caret-position="377">
+              <caret line="40" column="40" selection-start-line="40" selection-start-column="40" selection-end-line="40" selection-end-column="40" />
               <folding>
                 <element signature="e#0#49#0" expanded="true" />
               </folding>
@@ -40,36 +34,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/index.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="5" column="18" selection-start-line="5" selection-start-column="18" selection-end-line="5" selection-end-column="18" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app/css/Emulator.css">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app/core/memory/ByteMemory.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="6" column="38" selection-start-line="6" selection-start-column="38" selection-end-line="6" selection-end-column="38" />
-              <folding>
-                <element signature="e#0#41#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/app/core/memory/Memory.tsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="405">
-              <caret line="33" selection-start-line="33" selection-end-line="33" />
+            <state relative-caret-position="422">
+              <caret line="39" column="64" selection-start-line="39" selection-start-column="64" selection-end-line="39" selection-end-column="64" />
               <folding>
                 <element signature="e#0#38#0" expanded="true" />
               </folding>
@@ -78,46 +46,28 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/app/core/utils/Numbers.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="75">
+              <caret line="5" column="69" selection-start-line="5" selection-start-column="69" selection-end-line="5" selection-end-column="69" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/index.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="45">
+              <caret line="3" selection-start-line="3" selection-end-line="3" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/app/css/Memory.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="2" column="10" selection-start-line="2" selection-start-column="10" selection-end-line="2" selection-end-column="10" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app/core/utils/Binary.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="8" column="68" selection-start-line="8" selection-start-column="68" selection-end-line="8" selection-end-column="68" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app/core/memory/EDataLength.ts">
-          <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="60">
-              <caret line="4" column="12" selection-start-line="4" selection-start-column="12" selection-end-line="4" selection-end-column="12" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app/core/memory/HalfWordMemory.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="1" selection-start-line="1" selection-end-line="1" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app/core/memory/WordMemory.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="30" selection-start-column="30" selection-end-column="30" />
+              <caret line="4" column="48" selection-start-line="4" selection-start-column="48" selection-end-line="4" selection-end-column="48" />
             </state>
           </provider>
         </entry>
@@ -148,7 +98,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/app/css/Emulator.css" />
         <option value="$PROJECT_DIR$/src/app/core/Memory.tsx" />
         <option value="$PROJECT_DIR$/src/app/core/EmuRAM.tsx" />
         <option value="$PROJECT_DIR$/src/app/core/EmuRAMFactory.tsx" />
@@ -183,7 +132,6 @@
         <option value="$PROJECT_DIR$/src/app/core/memory/IMemory.ts" />
         <option value="$PROJECT_DIR$/src/app/core/graphics/Screen.tsx" />
         <option value="$PROJECT_DIR$/src/app/core/counters/MemoryCounter.ts" />
-        <option value="$PROJECT_DIR$/src/app/core/memory/EDataLength.ts" />
         <option value="$PROJECT_DIR$/src/app/core/memory/AMemory.tsx" />
         <option value="$PROJECT_DIR$/src/app/core/memory/ATypedArray.ts" />
         <option value="$PROJECT_DIR$/src/app/core/memory/ByteArray.ts" />
@@ -195,10 +143,12 @@
         <option value="$PROJECT_DIR$/src/app/core/memory/HalfWordMemory.ts" />
         <option value="$PROJECT_DIR$/src/app/core/memory/WordMemory.ts" />
         <option value="$PROJECT_DIR$/src/app/core/utils/Binary.ts" />
-        <option value="$PROJECT_DIR$/src/index.css" />
-        <option value="$PROJECT_DIR$/src/app/css/Memory.css" />
+        <option value="$PROJECT_DIR$/src/app/core/memory/EDataLength.ts" />
         <option value="$PROJECT_DIR$/src/app/Emulator.tsx" />
+        <option value="$PROJECT_DIR$/src/index.css" />
+        <option value="$PROJECT_DIR$/src/app/core/utils/Numbers.ts" />
         <option value="$PROJECT_DIR$/src/app/core/memory/Memory.tsx" />
+        <option value="$PROJECT_DIR$/src/app/css/Memory.css" />
       </list>
     </option>
   </component>
@@ -366,7 +316,7 @@
       <workItem from="1564315880730" duration="1199000" />
       <workItem from="1564317109530" duration="285000" />
       <workItem from="1564317407580" duration="1301000" />
-      <workItem from="1564318726288" duration="17065000" />
+      <workItem from="1564318726288" duration="24535000" />
     </task>
     <task id="LOCAL-00001" summary="First commit">
       <created>1564059822778</created>
@@ -431,11 +381,18 @@
       <option name="project" value="LOCAL" />
       <updated>1564320377709</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Better memory classes architecture&#10;Added visual representation of memories">
+      <created>1564530597522</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1564530597522</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="50627000" />
+    <option name="totallyTimeSpent" value="58097000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="25" width="1920" height="1055" extended-state="6" />
@@ -481,7 +438,8 @@
     <MESSAGE value="Added support for screen emulation" />
     <MESSAGE value="Added possibility to give a specific color to a specific pixel" />
     <MESSAGE value="Added support for emulated system creation for which the children are the peripherals and components composing the system" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added support for emulated system creation for which the children are the peripherals and components composing the system" />
+    <MESSAGE value="Better memory classes architecture&#10;Added visual representation of memories" />
+    <option name="LAST_COMMIT_MESSAGE" value="Better memory classes architecture&#10;Added visual representation of memories" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -636,45 +594,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/core/memory/EDataLength.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="12" selection-start-line="4" selection-start-column="12" selection-end-line="4" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/app/core/memory/WordMemory.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state>
-          <caret column="30" selection-start-column="30" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/core/memory/AMemory.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="18" selection-start-line="8" selection-start-column="18" selection-end-line="8" selection-end-column="18" />
+          <caret line="1" column="41" selection-start-line="1" selection-start-column="41" selection-end-line="1" selection-end-column="41" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/app/core/memory/HalfWordMemory.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" selection-start-line="1" selection-end-line="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/core/utils/Binary.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="68" selection-start-line="8" selection-start-column="68" selection-end-line="8" selection-end-column="68" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/index.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="18" selection-start-line="5" selection-start-column="18" selection-end-line="5" selection-end-column="18" />
+        <state>
+          <caret line="1" column="41" selection-start-line="1" selection-start-column="41" selection-end-line="1" selection-end-column="41" />
         </state>
       </provider>
     </entry>
@@ -682,39 +612,64 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
           <caret line="6" column="38" selection-start-line="6" selection-start-column="38" selection-end-line="6" selection-end-column="38" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/app/css/Emulator.css">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/css/Memory.css">
+    <entry file="file://$PROJECT_DIR$/src/app/core/memory/AMemory.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="15" selection-start-line="6" selection-start-column="15" selection-end-line="6" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/core/memory/EDataLength.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
-          <caret line="2" column="10" selection-start-line="2" selection-start-column="10" selection-end-line="2" selection-end-column="10" />
+          <caret line="2" column="16" selection-start-line="2" selection-start-column="16" selection-end-line="2" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/index.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" selection-start-line="3" selection-end-line="3" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/app/Emulator.tsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="347">
-          <caret line="39" column="30" selection-start-line="39" selection-start-column="30" selection-end-line="39" selection-end-column="30" />
+        <state relative-caret-position="377">
+          <caret line="40" column="40" selection-start-line="40" selection-start-column="40" selection-end-line="40" selection-end-column="40" />
           <folding>
             <element signature="e#0#49#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/core/utils/Numbers.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="69" selection-start-line="5" selection-start-column="69" selection-end-line="5" selection-end-column="69" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/app/core/memory/Memory.tsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="33" selection-start-line="33" selection-end-line="33" />
+        <state relative-caret-position="422">
+          <caret line="39" column="64" selection-start-line="39" selection-start-column="64" selection-end-line="39" selection-end-column="64" />
           <folding>
             <element signature="e#0#38#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/css/Memory.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="48" selection-start-line="4" selection-start-column="48" selection-end-line="4" selection-end-column="48" />
         </state>
       </provider>
     </entry>

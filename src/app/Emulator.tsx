@@ -38,13 +38,16 @@ export default class Emulator extends Component<IEmulatorProps, IEmulatorState> 
 		this.soundCounter = new ByteMemory()
 		this.ram.write(4096, 42)
 		this.ram.write(10, 45)
+		this.stack.write(3, (2 ** 16) - 1)
 	}
 
 	public render(): React.ReactElement<any, string | React.JSXElementConstructor<any>> | string | number | {} | React.ReactNodeArray | React.ReactPortal | boolean | null | undefined {
 		return (
 			<System>
-				<Screen position={{x: 400, y: 100}} definition={{width: 64, height: 32}} pixelsDimensions={{width: 5, height: 5}} refreshFrequency={250} display={true} ref={this.screenRef} />
+				<Screen position={{x: 400, y: 100}} definition={{width: 64, height: 32}} pixelsDimensions={{width: 5, height: 5}} refreshFrequency={250} display={false} ref={this.screenRef} />
 				<Memory name={'RAM'} memory={this.ram} />
+				<Memory name={'V'} memory={this.v} />
+				<Memory name={'Stack'} memory={this.stack} />
 			</System>
 		)
 	}
