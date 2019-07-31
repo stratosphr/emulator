@@ -1,6 +1,6 @@
 import AMemory from '../memory/AMemory'
 
-export default class MemoryCounter {
+export default class MemoryPointer {
 
 	private readonly _memoryLength: number
 	private _address: number

@@ -1,7 +1,7 @@
 import React, {Component, RefObject} from 'react'
 import './css/Emulator.css'
 import ByteMemory from './core/memory/ByteMemory'
-import MemoryCounter from './core/counters/MemoryCounter'
+import MemoryPointer from './core/counters/MemoryPointer'
 import HalfWordMemory from './core/memory/HalfWordMemory'
 import Screen from './core/graphics/Screen'
 import System from './core/system/System'
@@ -17,11 +17,11 @@ export default class Emulator extends Component<IEmulatorProps, IEmulatorState> 
 
 	private readonly screenRef: RefObject<Screen>
 	private readonly ram: ByteMemory
-	private readonly pc: MemoryCounter
+	private readonly pc: MemoryPointer
 	private readonly v: ByteMemory
 	private readonly i: HalfWordMemory
 	private readonly stack: HalfWordMemory
-	private readonly jumpCounter: MemoryCounter
+	private readonly jumpCounter: MemoryPointer
 	private readonly gameCounter: ByteMemory
 	private readonly soundCounter: ByteMemory
 
@@ -29,11 +29,11 @@ export default class Emulator extends Component<IEmulatorProps, IEmulatorState> 
 		super(props)
 		this.screenRef = React.createRef<Screen>()
 		this.ram = new ByteMemory(4096)
-		this.pc = new MemoryCounter(this.ram, 512)
+		this.pc = new MemoryPointer(this.ram, 512)
 		this.v = new ByteMemory(16)
 		this.i = new HalfWordMemory()
 		this.stack = new HalfWordMemory(16)
-		this.jumpCounter = new MemoryCounter(this.stack)
+		this.jumpCounter = new MemoryPointer(this.stack)
 		this.gameCounter = new ByteMemory()
 		this.soundCounter = new ByteMemory()
 		this.ram.write(4096, 42)
