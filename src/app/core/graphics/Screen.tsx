@@ -79,9 +79,11 @@ export default class Screen extends Component<IScreenProps, IScreenState> {
 
 	public render(): React.ReactElement<any, string | React.JSXElementConstructor<any>> | string | number | {} | React.ReactNodeArray | React.ReactPortal | boolean | null | undefined {
 		return (
-			<canvas width={this.dimensions.width} height={this.dimensions.height} ref={this.canvasRef} style={{position: 'absolute', left: this.position.x, top: this.position.y, visibility: this.props.display ? 'visible' : 'hidden'}}>
-				Unable to emulate screen because the canvas element isn't supported by your browser.
-			</canvas>
+			<div style={{height: this.position.y + this.dimensions.height, position: 'relative', left: this.position.x, top: this.position.y, display: this.props.display ? 'block' : 'none'}}>
+				<canvas width={this.dimensions.width} height={this.dimensions.height} ref={this.canvasRef}>
+					Unable to emulate screen because the canvas element isn't supported by your browser.
+				</canvas>
+			</div>
 		)
 	}
 

@@ -44,7 +44,7 @@ export default class Emulator extends Component<IEmulatorProps, IEmulatorState> 
 	public render(): React.ReactElement<any, string | React.JSXElementConstructor<any>> | string | number | {} | React.ReactNodeArray | React.ReactPortal | boolean | null | undefined {
 		return (
 			<System>
-				<Screen position={{x: 400, y: 100}} definition={{width: 64, height: 32}} pixelsDimensions={{width: 5, height: 5}} refreshFrequency={250} display={false} ref={this.screenRef} />
+				<Screen position={{x: 10, y: 10}} definition={{width: 64, height: 32}} pixelsDimensions={{width: 10, height: 10}} refreshFrequency={250} display={true} ref={this.screenRef} />
 				<Memory name={'RAM'} memory={this.ram} pointers={[this.pc]} />
 				<Memory name={'V'} memory={this.v} pointers={[]} />
 				<Memory name={'Stack'} memory={this.stack} pointers={[this.stackPointer, new MemoryPointer(this.ram, 3)]} />
