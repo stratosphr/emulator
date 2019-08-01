@@ -31,7 +31,7 @@ export default class Emulator extends Component<IEmulatorProps, IEmulatorState> 
 	constructor(props: Readonly<IEmulatorProps>) {
 		super(props)
 		this.screenRef = React.createRef<Screen>()
-		this.ram = new ByteMemory(4096)
+		this.ram = new ByteMemory(1024)
 		this.pc = new MemoryPointer(this.ram, 512)
 		this.v = new ByteMemory(16)
 		this.i = new HalfWordMemory()
@@ -47,30 +47,43 @@ export default class Emulator extends Component<IEmulatorProps, IEmulatorState> 
 		this.ram.write(this.i.read(0) + 2, 0b11100011)
 		this.ram.write(this.pc.address, 0xD0)
 		this.ram.write(this.pc.address + 1, 0x13)
-		/*this.ram.write(this.i.read(0), 0b01110101)
-		this.ram.write(this.i.read(0) + 1, 0b01110000)
-		this.ram.write(this.pc.address + 2, 0xD0)
-		this.ram.write(this.pc.address + 3, 0x12)*/
+		this.ram.write(this.pc.address + 2, 0x00)
+		this.ram.write(this.pc.address + 3, 0xE0)
+		this.ram.write(this.pc.address + 4, 0x22)
+		this.ram.write(this.pc.address + 5, 0x04)
+		this.ram.write(this.pc.address + 6, 0x00)
+		this.ram.write(this.pc.address + 7, 0xEE)
 		this.instructionInterpreter = new Interpreter([
 			{
 				id: 0x0FFF, mask: 0x0000, execute: instruction => {
-				}, description: '0x0NNN - Calls the RCA 1802 program at address NNN'
+				}, description: '0x0NNN - Calls the RCA 1802 program at address NNN.'
 			},
 			{
 				id: 0x00E0, mask: 0xFFFF, execute: instruction => {
-				}
+					this.screenRef.current!.clear()
+				}, description: '0x00E0 - Clears the screen.'
 			},
 			{
 				id: 0x00EE, mask: 0xFFFF, execute: instruction => {
-				}
+					if (this.stackPointer.address > 0) {
+						this.stackPointer.dec()
+						this.pc.goTo(this.stack.read(this.stackPointer.address))
+					}
+				}, description: '0x00EE - Returns from jump to subprogram.'
 			},
 			{
 				id: 0x1000, mask: 0xF000, execute: instruction => {
-				}
+					this.pc.goTo((instruction & 0xFFF) - 2)
+				}, description: '0x1NNN - Jumps to address NNN.'
 			},
 			{
 				id: 0x2000, mask: 0xF000, execute: instruction => {
-				}
+					this.stack.write(this.stackPointer.address, this.pc.address)
+					if (this.stackPointer.address < this.stackPointer.memoryLength - 1) {
+						this.stackPointer.inc()
+					}
+					this.pc.goTo((instruction & 0xFFF) - 2)
+				}, description: '0x2NNN - Jumps to subprogram at address NNN.'
 			},
 			{
 				id: 0x3000, mask: 0xF000, execute: instruction => {
@@ -147,23 +160,26 @@ export default class Emulator extends Component<IEmulatorProps, IEmulatorState> 
 			{
 				//TODO: care for register overflow (const x = this.v[X] + col % 64px is better)
 				id: 0xD000, mask: 0xF000, execute: instruction => {
-					console.log(instruction.toString(16))
 					const X: number = (instruction & 0x0F00) >> 8
 					const Y: number = (instruction & 0x00F0) >> 4
 					const H: number = (instruction & 0x000F)
 					this.v.write(0xF, 0)
 					for (let row = 0; row < H; row++) {
-						const encoding: number = this.ram[this.i.read(0) + row]
-						const y: number = this.v.read(Y) + row
-						console.log(y)
-						for (let col = 0, shift = 7; col < 8; col++, shift--) {
-							const x = this.v[X] + col
-							if ((encoding & (0x1 << shift)) !== 0) {
-								this.screenRef.current!.setPixelColor({x: x, y: y}, 'white')
+						const pixelsEncoding: number = this.ram[this.i.read(0) + row]
+						const y: number = (this.v.read(Y) + row) % this.screenRef.current!.props.definition.height
+						for (let col = 0; col < 8; col++) {
+							const x: number = (this.v.read(X) + col) % this.screenRef.current!.props.definition.width
+							if ((pixelsEncoding & (0x1 << (7 - col))) !== 0) {
+								if (this.screenRef.current!.getPixelColor({x: x, y: y}) === 'white') {
+									this.screenRef.current!.setPixelColor({x: x, y: y}, 'black')
+									this.v.write(0xF, 0x1)
+								} else {
+									this.screenRef.current!.setPixelColor({x: x, y: y}, 'white')
+								}
 							}
 						}
 					}
-				}, description: '0xDXYN - Draws a sprite with a height of N pixels at coordinates (V[X], V[Y])'
+				}, description: '0xDXYN - Draws a sprite with a height of N pixels at coordinates (V[X], V[Y]).'
 			},
 			{
 				id: 0xE09E, mask: 0xF0FF, execute: instruction => {
@@ -212,6 +228,13 @@ export default class Emulator extends Component<IEmulatorProps, IEmulatorState> 
 		])
 	}
 
+	private interpretInstruction(): void {
+		const opcode: number = ((this.ram.read(this.pc.address) << 8) + this.ram.read(this.pc.address + 1))
+		this.instructionInterpreter.execute(opcode)
+		this.pc.inc()
+		this.pc.inc()
+	}
+
 	public render(): React.ReactElement<any, string | React.JSXElementConstructor<any>> | string | number | {} | React.ReactNodeArray | React.ReactPortal | boolean | null | undefined {
 		return (
 			<System frequency={1} onUpdate={this.interpretInstruction.bind(this)}>
@@ -224,13 +247,6 @@ export default class Emulator extends Component<IEmulatorProps, IEmulatorState> 
 				<Memory name={'SoundCounter'} memory={this.soundCounter} pointers={[]} />
 			</System>
 		)
-	}
-
-	private interpretInstruction(): void {
-		const opcode: number = ((this.ram.read(this.pc.address) << 8) + this.ram.read(this.pc.address + 1))
-		this.instructionInterpreter.execute(opcode)
-		this.pc.inc()
-		this.pc.inc()
 	}
 
 }

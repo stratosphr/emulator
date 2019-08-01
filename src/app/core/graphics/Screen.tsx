@@ -53,6 +53,10 @@ export default class Screen extends Component<IScreenProps, IScreenState> {
 		}
 	}
 
+	public getPixelColor(position: IPosition): string {
+		return this.pixels[position.x][position.y].color
+	}
+
 	public setPixelColor(position: IPosition, color: string) {
 		this.pixels[position.x][position.y].color = color
 		this.ctx!.beginPath()
